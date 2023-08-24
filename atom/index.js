@@ -1,3 +1,4 @@
+import { GameEvent } from '../game-event'
 import { Observable } from '../observable'
 
 class Atom extends Observable {
@@ -9,19 +10,15 @@ class Atom extends Observable {
     this.set = (value) => {
       _value = value
 
-      this.notify({
-        action: 'set',
-        data: value
-      })
+      const event = new GameEvent('set', value)
+      this.notify(event)
 
       return this
     }
 
     this.get = () => {
-      this.notify({
-        action: 'get',
-        data: _value
-      })
+      const event = new GameEvent('get', _value)
+      this.notify(event)
 
       return _value
     }

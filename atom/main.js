@@ -1,4 +1,4 @@
-import { Atom } from './index'
+import { Atom } from '.'
 
 const atom = new Atom()
 const atomWatcher = (...args) => {

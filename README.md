@@ -1,4 +1,10 @@
-A collection of JavaScript modules for game development
+# Modules
+
+A collection of JavaScript modules.
+
+## About
+
+I always start developing a game from scratch and rewrite everything for new projects, which I never finish. The goal of this repository is to contain all my unfinished project modules, so I can track which modules are rewritten frequently.
 
 ## How to test a module
 

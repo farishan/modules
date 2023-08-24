@@ -1,4 +1,15 @@
 (() => {
+  // game-event/index.js
+  var GameEvent = class {
+    constructor(name, data) {
+      const _name = name;
+      const _data = data;
+      this.get = () => {
+        return { name: _name, data: _data };
+      };
+    }
+  };
+
   // observable/index.js
   var Observable = class {
     constructor() {
@@ -25,17 +36,13 @@
       let _value = initialValue;
       this.set = (value) => {
         _value = value;
-        this.notify({
-          action: "set",
-          data: value
-        });
+        const event = new GameEvent("set", value);
+        this.notify(event);
         return this;
       };
       this.get = () => {
-        this.notify({
-          action: "get",
-          data: _value
-        });
+        const event = new GameEvent("get", _value);
+        this.notify(event);
         return _value;
       };
     }
